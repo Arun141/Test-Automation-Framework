@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+	<!-- Where do you want your logs to be shown -->
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %level %logger::%M::%L %msg %n"></PatternLayout>
+		</Console>
+		
+		<File name="FileLogger" filename="logs/automation.log" append="false">
+			<PatternLayout
+				pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %level %logger %msg %n"></PatternLayout>
+		</File>
+	</Appenders>
+
+	<!-- define from which level do you wanaa append in loggers-->
+	<!-- TRACE[loop,state of instance] > DEBUG[complex code,devphase] > INFO > WARN > ERROR[catch] > FATAL[dbconn issue]-->
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console"></AppenderRef>
+			<AppenderRef ref="FileLogger"></AppenderRef>
+		</Root>
+
+	</Loggers>
+
+
+</Configuration>
