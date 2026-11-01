@@ -1,4 +1,3 @@
-
 name: Test Automation WorkFlow
 
 on:
@@ -42,9 +41,3 @@ jobs:
 
     - name: Test Execution Status
       run: echo "Test Execution Completed"
-
-
-
-
-
-   
