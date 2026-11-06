@@ -38,6 +38,7 @@ jobs:
       with:
         name: screenshots
         path: screenshots/
+        if-no-files-found: ignore
 
     - name: Upload HTML Report as Artifact
       if: always()
@@ -51,11 +52,14 @@ jobs:
 
     - name: Copy Report to gh-pages Folder
       if: always()
-
       run: |
         mkdir -p public/extent-reports
         cp -R report.html public/extent-reports/
-        cp -R screenshots/ public/extent-reports/screenshots/
+        if [ -d screenshots]; then
+          cp -R screenshots public/extent-reports/
+        else
+          echo "No screenshots folder found, skipping"
+        fi
 
     - name: Deploy
       if: always()
