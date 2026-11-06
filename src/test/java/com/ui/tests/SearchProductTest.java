@@ -25,7 +25,7 @@ public class SearchProductTest extends TestBase{
 	public static void verifyproductSearchTest() {		
 		boolean actualResult = myAccountPage.searchForAProduct(SEARCH_TERM).getAllDressesName(SEARCH_TERM);
 		
-		Assert.assertEquals(actualResult, false);
+		Assert.assertEquals(actualResult, true);
 	}
 	
 
