@@ -55,12 +55,7 @@ jobs:
       run: |
         mkdir -p public/extent-reports
         cp -R report.html public/extent-reports/
-        if [ -d screenshots]; then
-          cp -R screenshots public/extent-reports/report-screenshots
-          sed -i 's#\./screenshots/#./report-screenshots/#g' public/extent-reports/report.html
-        else
-          echo "No screenshots folder found, skipping"
-        fi
+        cp -R screenshots/ public/extent-reports/screenshots/
 
     - name: Deploy
       if: always()
